@@ -15,14 +15,14 @@ module.exports = (robot) ->
    start:    true                # すぐにcronのjobを実行するか
    timeZone: "Asia/Tokyo"        # タイムゾーン指定
    onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "#general"}, "@channel: 24時までに #progress_report へ進捗報告よろしくね！"
+     robot.send {room: "#general"}, "<!channel> 24時までに #progress_report へ進捗報告よろしくね！"
     )
  cronjob = new cronJob(
    cronTime: "0 0 22 * * 6"     # 実行時間
    start:    true                # すぐにcronのjobを実行するか
    timeZone: "Asia/Tokyo"        # タイムゾーン指定
    onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "#general"}, "@channel: 24時までに #progress_report へ進捗報告よろしくね！"
+     robot.send {room: "#general"}, "<!channel> 24時までに #progress_report へ進捗報告よろしくね！"
     )
 
  cronjob = new cronJob(
@@ -30,7 +30,7 @@ module.exports = (robot) ->
    start:    true                # すぐにcronのjobを実行するか
    timeZone: "Asia/Tokyo"        # タイムゾーン指定
    onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "#general"}, "@channel: 24時までに #progress_report へ進捗報告よろしくね！"
+     robot.send {room: "#general"}, "<!channel> 24時までに #progress_report へ進捗報告よろしくね！"
     )
   
  cronjob = new cronJob(
