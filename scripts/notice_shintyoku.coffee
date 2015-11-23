@@ -47,5 +47,12 @@ module.exports = (robot) ->
   ###
  robot.hear /NOTICE$/i, (msg) ->
     msg.send "進捗！！"
-  
+
+ cronjob = new cronJob(
+   cronTime: "0 30 19 23 11 *"     # 実行時間
+   start:    true                # すぐにcronのjobを実行するか
+   timeZone: "Asia/Tokyo"        # タイムゾーン指定
+   onTick: ->                    # 時間が来た時に実行する処理
+     robot.send {room: "#test_ei_chan"}, "このメッセージが11/23の19:30に届いているということは、きっと大丈夫だと思うよ！"
+    )
 
