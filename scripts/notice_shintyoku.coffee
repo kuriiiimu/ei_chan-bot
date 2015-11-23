@@ -32,6 +32,16 @@ module.exports = (robot) ->
    onTick: ->                    # 時間が来た時に実行する処理
      robot.send {room: "#general"}, "@channel: 24時までに #progress_report へ進捗報告よろしくね！"
     )
+  
+ cronjob = new cronJob(
+   cronTime: "0 45 19 23 11 *"     # 実行時間
+   start:    true                # すぐにcronのjobを実行するか
+   timeZone: "Asia/Tokyo"        # タイムゾーン指定
+   onTick: ->                    # 時間が来た時に実行する処理
+     robot.send {room: "#general"}, "このメッセージが11/23の19:45に届いていれば、僕に進捗報告お知らせが導入されたということだよ！日曜夜はよろしくね！"
+    )
+
+
   ###
   new cron '0 0 21 * * 6', () =>
     robot.send room: "#general", "@channel: 24時までに #progress_report に進捗報告してね！"
@@ -48,11 +58,5 @@ module.exports = (robot) ->
  robot.hear /NOTICE$/i, (msg) ->
     msg.send "進捗！！"
 
- cronjob = new cronJob(
-   cronTime: "0 30 19 23 11 *"     # 実行時間
-   start:    true                # すぐにcronのjobを実行するか
-   timeZone: "Asia/Tokyo"        # タイムゾーン指定
-   onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "#test_ei_chan"}, "このメッセージが11/23の19:30に届いているということは、きっと大丈夫だと思うよ！"
-    )
+ 
 
