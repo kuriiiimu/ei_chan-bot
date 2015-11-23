@@ -25,14 +25,6 @@ module.exports = (robot) ->
    onTick: ->                    # 時間が来た時に実行する処理
      robot.send {room: "susuwatarin"}, "おはよう！今日もいい一日になるといいね"
     )
-  
- cronjob = new cronJob(
-   cronTime: "0 55 21 23 10 *"     # 実行時間
-   start:    true                # すぐにcronのjobを実行するか
-   timeZone: "Asia/Tokyo"        # タイムゾーン指定
-   onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "susuwatarin"}, "届いてればオッケー"
-    )
 
 
  robot.hear /WAKEUPANDSLEEP$/i, (msg) ->
