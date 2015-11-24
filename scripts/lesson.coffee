@@ -17,9 +17,5 @@ module.exports = (robot) ->
     msg.send "Hi, #{msg.match[1]}"
 
   robot.hear /(OMIKUJI|(お|御)(みくじ|神籤)|オミクジ)/i, (msg) ->
-    msg.reply msg.random ["大吉", "中吉", "小吉", "吉", "凶", "大凶"] 
-
-  
-
-  
-    
+  	omikuji = msg.random ["大吉", "中吉", "小吉", "吉", "凶", "大凶"]
+  	msg.reply "おみくじの結果は「 #{omikuji} 」です"
