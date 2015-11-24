@@ -1,16 +1,12 @@
 # Description
-#   With it, You can confirm your push.
-#   Please write this to below
-#   --------------------------------------------------------------------------
-# 	  robot.hear /{(scripts name),(modules name),(package name)}$/i, (msg) ->
-#       msg.send "Success!!"
-#   --------------------------------------------------------------------------
-#   and check on slack when you push one.
+#   botからのお知らせ用
 #
 # Commands:
 #
 # Author:
 #   susuwatarin
+
+cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
   cronjob = new cronJob(
