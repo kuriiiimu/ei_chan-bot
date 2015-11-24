@@ -26,12 +26,29 @@ module.exports = (robot) ->
 
     request (err, res, body) ->
       json = JSON.parse body
-      if day == 3 
-        msg.reply "ごめんなさい、予測が難しいです" 
-      else
-        forecast = json['forecasts'][day]['telop']
-        image = json['forecasts'][day]['image']['url']
+      switch day 
+        when 0
+          forecast = json['forecasts'][day]['telop']
+          image = json['forecasts'][day]['image']['url']
 
-        msg.reply "#{msg.match[1]}の予報は、「#{forecast}」です" + "　#{image}"
+          msg.reply "#{msg.match[1]}の予報は、「#{forecast}」です" + "　#{image}"
 
+        when 1,2
+          forecast = json['forecasts'][day]['telop']
+          image = json['forecasts'][day]['image']['url']
+        
+          Maxcheck = json['forecasts'][day]['temperature']['max']
+          Mincheck = json['forecasts'][day]['temperature']['min']
 
+          if Mincheck is null || Maxcheck is null
+            msg.reply "#{msg.match[1]}の予報は、「#{forecast}」です" + "　#{image}"
+          else
+            MaxTemp = json['forecasts'][day]['temperature']['max']['celsius']
+            MinTemp = json['forecasts'][day]['temperature']['min']['celsius']
+        
+            msg.reply "#{msg.match[1]}の予報は、「#{forecast}」です" + "　#{image}" + 
+            " 最高気温は#{MaxTemp}度で、最低気温は#{MinTemp}度です"
+       
+        when 3
+          msg.reply "ごめんなさい、予測が難しいです" 
+        
