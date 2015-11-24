@@ -19,15 +19,7 @@ module.exports = (robot) ->
     )
 
  cronjob = new cronJob(
-   cronTime: "0 1 9 * * *"     # 実行時間
-   start:    true                # すぐにcronのjobを実行するか
-   timeZone: "Asia/Tokyo"        # タイムゾーン指定
-   onTick: ->                    # 時間が来た時に実行する処理
-     robot.send {room: "susuwatarin"}, "おはよう！今日もいい一日になるといいね"
-    )
-
- cronjob = new cronJob(
-   cronTime: "0 50 9 * * *"     # 実行時間
+   cronTime: "0 2 9 * * *"     # 実行時間
    start:    true                # すぐにcronのjobを実行するか
    timeZone: "Asia/Tokyo"        # タイムゾーン指定
    onTick: ->                    # 時間が来た時に実行する処理
@@ -35,6 +27,6 @@ module.exports = (robot) ->
     )
 
 
- robot.hear /WAKEUPANDSLEEP$/i, (msg) ->
+ robot.hear /WAKEUPANDSLEEP3$/i, (msg) ->
    msg.send "Success"
 
