@@ -11,7 +11,7 @@
 #
 
 module.exports = (robot) ->   
-  robot.hear /(.*)の天気/i, (msg) ->
+  robot.hear /(.*)の(天気|天気予報|予報)(教えて(|！|？|ください(|。|！))|(|は？|？|を(教えて(|！|？|ください(|。|！)))))/i, (msg) ->
    switch msg.match[1]
       when '今日'
         day = 0
@@ -27,8 +27,11 @@ module.exports = (robot) ->
     request (err, res, body) ->
       json = JSON.parse body
       if day == 3 
-        forecast = 'ごめんなさい、わからないです' 
+        msg.reply "ごめんなさい、予測が難しいです" 
       else
         forecast = json['forecasts'][day]['telop']
-      msg.reply  "#{msg.match[1]}の予報は、「#{forecast}」です"
+        image = json['forecasts'][day]['image']['url']
+
+        msg.reply "#{msg.match[1]}の予報は、「#{forecast}」です" + "　#{image}"
+
 
