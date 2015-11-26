@@ -23,7 +23,7 @@ module.exports = (robot) ->
 	 min   = d.getMinutes()      # 分
 	 sec   = d.getSeconds()      # 秒
 
-	 msg.send "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です"
+	 msg.send "今は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ〜"
 
 
  robot.hear /(今|いま|現在)(何時|なんじ)(|？)$/i, (msg) ->
@@ -36,8 +36,8 @@ module.exports = (robot) ->
 	 min   = d.getMinutes()      # 分
 	 sec   = d.getSeconds()      # 秒
 
-	 soune = msg.random ["♪そ〜ねだ〜いた〜いね〜！　　　　・・・冗談ですよ、現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です",
-	  "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "現在時刻は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です"]
+	 soune = msg.random ["♪そ〜ねだ〜いた〜いね〜！　　　　・・・冗談だよ笑　今は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒です", "いまは#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ〜", "いまは#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ！", "いまは#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ", "いまは#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ！",
+	  "いまは#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ〜", "今は#{year}年#{month}月#{date}日の#{hour}時#{min}分#{sec}秒だよ！"]
 
 	 msg.send "#{soune}"
 
